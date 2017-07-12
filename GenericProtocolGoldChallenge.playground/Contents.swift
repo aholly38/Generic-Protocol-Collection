@@ -152,4 +152,11 @@ print("Position: [\(find)]")
 
 var myCollection = Stack<Int>()
 var collection = [1:"Yankees", 2:"HomeRuns", 3:"AaronJudge"]
+myCollection.CheckAnyCollection(in: collection, for: 3) // <- place where I get error
+/* error message
+Playground execution failed: error: GenericProtocolGoldChallenge.playground:149:54: error: cannot convert value of type 'Int' to expected argument type '_.Iterator.Element'
 myCollection.CheckAnyCollection(in: collection, for: 3)
+                                                     ^
+
+error: GenericProtocolGoldChallenge.playground:60:20: error: use of unresolved identifier 'c'
+        return zip(c.indices, c).lazy.filter{ $0.1 == element }.map{ $0.0 } */
