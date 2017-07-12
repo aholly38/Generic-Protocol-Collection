@@ -59,24 +59,11 @@ struct Stack<Element>: Sequence {
         
     }
     
-    func CheckAnyCollection<T: Collection>(in collection: T, for element: T.Iterator.Element) -> [T.Index] where T.Iterator.Element: Equatable, T.Indices.Iterator.Element == T.Index
+    func CheckAnyCollection<C: Collection>(in collection: C, for element: C.Iterator.Element) -> [C.Index] where C.Iterator.Element: Equatable, C.Indices.Iterator.Element == C.Index
         
     {
         
-        
-        var results: [T.Index] = []
-        
-        for index in collection.indices {
-            
-            if collection[index] == element {
-                
-                results.append(index)
-            }
-            
-        }
-        
-        return results
-        
+        return zip(c.indices, c).lazy.filter{ $0.1 == element }.map{ $0.0 }
         
     }
     
